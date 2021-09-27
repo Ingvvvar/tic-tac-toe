@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { Square } from '../Square';
 
 interface Props {
@@ -11,7 +12,7 @@ export const Board: React.FC<Props> = ({ squares, click }) => {
     <div className="board">
       {
         squares.map((square, i) => (
-          <Square key={new Date().toDateString()} value={square} onClick={() => click(i)} />
+          <Square key={uuidv4()} value={square} onClick={() => click(i)} />
         ))
       }
     </div>
