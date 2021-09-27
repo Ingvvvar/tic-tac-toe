@@ -5,7 +5,10 @@ import { calculateWinner } from '../../helper';
 export const Game: React.FC = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
+  const [wX, setWx] = useState(0);
+  const [wO, setWo] = useState(0);
   const winner = calculateWinner(board);
+  const champion = winner?.toString();
 
   const handleClick = (index: number) => {
     const boardCopy = [...board];
@@ -19,9 +22,22 @@ export const Game: React.FC = () => {
     setXIsNext(!xIsNext);
   };
 
+  const clear = () => {
+    setBoard(Array(9).fill(null));
+    setXIsNext(true);
+
+    if (champion === 'X') {
+      setWx((prev) => prev + 1);
+    }
+
+    if (champion === 'O') {
+      setWo((prev) => prev + 1);
+    }
+  };
+
   const startNewGame = () => {
     return (
-      <button type="button" className="start__btn" onClick={() => setBoard(Array(9).fill(null))}> Очистить поле </button>
+      <button type="button" className="start__btn" onClick={clear}> Очистить поле </button>
     );
   };
 
@@ -30,8 +46,17 @@ export const Game: React.FC = () => {
       <Board squares={board} click={handleClick} />
       <div className="info">
         <div>Score</div>
-        <div>Player 1: 1</div>
-        <div>Player 2: 2</div>
+        <div>
+          Player X:
+          {' '}
+          {wX}
+        </div>
+
+        <div>
+          Player O:
+          {' '}
+          {wO}
+        </div>
         {startNewGame()}
         <span className="game__info">
           {winner ? `Победитель ${winner}` : `Сейчас ходит ${xIsNext ? 'X' : 'O'}`}
