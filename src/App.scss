@@ -1,3 +1,50 @@
 .starter {
-  font-size: 18px;
+  font-size: 36px;
+}
+
+.wrapper {
+  background-color: #545f7d;
+  width: 630px;
+  height: 350px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.board {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background-color: #44425e;
+  cursor: pointer;
+  border: 5px solid #a855c1;
+  font-size: 100px;
+  color: rgb(192, 187, 187);
+  transition: 0.3s all ease;
+
+  &:hover {
+    background-color: #fff;
+    color: black;
+    transition: 0.3s all ease;
+  }
+}
+
+.info {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  height: 90%;
+  width: 45%;
 }

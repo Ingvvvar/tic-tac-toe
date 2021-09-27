@@ -1,8 +1,10 @@
 import React from 'react';
 import './App.scss';
 
+import { Game } from './components/Game';
+
 export const App: React.FC = () => (
   <div className="starter">
-    React starter pack
+    <Game />
   </div>
 );
