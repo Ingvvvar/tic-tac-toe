@@ -58,8 +58,11 @@ export const Game: React.FC = () => {
           {wO}
         </div>
         {startNewGame()}
-        <span className="game__info">
-          {winner ? `Победитель ${winner}` : `Сейчас ходит ${xIsNext ? 'X' : 'O'}`}
+        <span>
+          {winner
+            ? `Победитель ${winner}`
+            : `Сейчас ходит ${xIsNext
+              ? 'X' : 'O'}`}
         </span>
       </div>
     </div>
